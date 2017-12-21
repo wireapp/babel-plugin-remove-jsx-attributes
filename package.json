@@ -1,6 +1,6 @@
 {
 	"name": "babel-plugin-remove-jsx-attributes",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "GPL-3.0",
 	"repository": {
 		"type": "git",
