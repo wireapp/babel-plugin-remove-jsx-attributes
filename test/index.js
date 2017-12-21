@@ -40,5 +40,6 @@ function test(fixtureName) {
 [
   'class-two-attrs',
   'class-single-attr',
-  'function-single-attr'
+  'function-single-attr',
+  'spread',
 ].map(test);

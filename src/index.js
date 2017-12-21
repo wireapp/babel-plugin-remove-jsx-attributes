@@ -17,12 +17,12 @@
  *
  */
 
-module.exports = function ({ Plugin, types: t }) {
+module.exports = function ({Plugin, types: t}) {
   return {
     visitor: {
       JSXElement({node}, {opts: {patterns = []}}) {
         node.openingElement.attributes = node.openingElement.attributes
-          .filter((attributeEntry) => !patterns.some((regex) => new RegExp(regex).test(attributeEntry.name.name)));
+          .filter((attributeEntry) => !patterns.some((regex) => attributeEntry.name ? new RegExp(regex).test(attributeEntry.name.name) : false));
       }
     }
   };

@@ -1,26 +1,28 @@
 {
-  "name": "babel-plugin-remove-jsx-attributes",
-  "version": "0.0.1",
-  "license": "GPL-3.0",
+	"name": "babel-plugin-remove-jsx-attributes",
+	"version": "0.0.1",
+	"license": "GPL-3.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/wireapp/babel-plugin-remove-jsx-attributes.git"
-  },
-  "main": "src/index.js",
-  "files": ["src"],
+	},
+	"main": "src/index.js",
+	"files": [
+		"src"
+	],
 	"dependencies": {},
 	"devDependencies": {
 		"mocha": "2.3.2",
 		"react": "16.2.0",
-    "react-dom": "16.2.0",
-    "babel-cli": "6.26.0",
-    "babel-preset-react": "6.24.1"
+		"react-dom": "16.2.0",
+		"babel-cli": "6.26.0",
+		"babel-preset-react": "6.24.1"
 	},
 	"engines": {
 		"yarn": ">= 1.0.0"
 	},
 	"scripts": {
-    "preversion": "yarn && yarn test",
-    "test": "mocha test"
+		"preversion": "yarn && yarn test",
+		"test": "mocha test"
 	}
 }
