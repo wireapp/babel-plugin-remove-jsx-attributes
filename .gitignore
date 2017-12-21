@@ -1,0 +1,15 @@
+!/.idea/codeStyleSettings.xml
+!/.idea/modules.xml
+.DS_Store
+.Icon
+/.idea/**/*.xml
+/debug.log
+/lib
+/doc
+/keys
+/node_modules
+/package-lock.json
+/temp
+/workspace.xml*
+npm-debug.log
+yarn-error.log
