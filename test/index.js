@@ -43,3 +43,33 @@ function test(fixtureName) {
   'function-single-attr',
   'spread',
 ].map(test);
+
+it('does run with checkEnv true and set env var', function () {
+  process.env.REMOVE_JSX_ATTRIBUTES = true;
+  const fixturePath = path.resolve(__dirname, 'fixtures', 'class-single-attr', 'class-single-attr.js');
+  const expectedPath = path.resolve(__dirname, 'fixtures', 'class-single-attr', 'class-single-attr-expected.js');
+  const actual = babel.transformFileSync(fixturePath, {
+      plugins: [[path.resolve(__dirname, '..', 'src'), {patterns: [
+        /^data-uie/,
+      ], checkEnvironment: true}]],
+      presets: ['react'],
+    }).code;
+  const expected = fs.readFileSync(expectedPath, { encoding: 'utf8' });
+  assert.equal(actual + '\n', expected);
+  delete process.env.REMOVE_JSX_ATTRIBUTES;
+});
+
+it('does not run with checkEnv true but unset env var', function () {
+  const fixturePath = path.resolve(__dirname, 'fixtures', 'class-single-attr', 'class-single-attr.js');
+  const expectedPath = path.resolve(__dirname, 'fixtures', 'class-single-attr', 'class-single-attr-unchanged-expected.js');
+  const actual = babel.transformFileSync(fixturePath, {
+      plugins: [[path.resolve(__dirname, '..', 'src'), {patterns: [
+        /^data-uie/,
+      ], checkEnvironment: true}]],
+      presets: ['react'],
+    }).code;
+  const expected = fs.readFileSync(expectedPath, { encoding: 'utf8' });
+  assert.equal(actual + '\n', expected);
+});
+
+
